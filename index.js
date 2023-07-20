@@ -1,7 +1,9 @@
 const express = require('express')
 const uuid = require('uuid')
+const cors = require('cors')
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 const orders = []
 const checkUserId = (request, response, next) => {
@@ -71,6 +73,6 @@ app.patch('/orders/:id', checkUserId, methodUrl, (request, response) =>{
     return response.json(finishedOrder)
 })
 
-app.listen(3000, () => {
-    console.log('🍔 Server started on port 3000')
+app.listen(3001, () => {
+    console.log('🍔 Server started on port 3001')
 })
